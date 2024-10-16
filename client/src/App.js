@@ -1,8 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
 import OtherPage from "./OtherPage";
 import Fib from "./Fib";
-import {Link, Route} from "react-router-dom";
+import {Link, Route, Routes} from "react-router-dom";
 
 function App() {
   return (
@@ -12,10 +11,10 @@ function App() {
         <Link className="App-link" to="/">Home</Link>
         <Link className="App-link" to="/otherpage">Other Page</Link>
       </header>
-      <div>
-        <Route exact path={"/"} component={Fib}/>
-        <Route exact path={"/otherpage"} component={OtherPage}/>
-      </div>
+        <Routes>
+            <Route path="/" element={<Fib />} />
+            <Route path="/otherpage" element={<OtherPage />} />
+        </Routes>
     </div>
   );
 }
