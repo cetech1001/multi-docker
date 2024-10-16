@@ -1,0 +1,15 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t cetech/fibonacci-client-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true cetech/fibonacci-client npm test
+
+after_success:
+  - docker build build -t cetech/fibonacci-client ./client
+  - docker build build -t cetech/fibonacci-nginx ./nginx
+  - docker build build -t cetech/fibonacci-server ./server
+  - docker build build -t cetech/fibonacci-worker ./worker
