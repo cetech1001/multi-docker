@@ -9,10 +9,10 @@ script:
   - docker run -e CI=true cetech/fibonacci-client-test npm test
 
 after_success:
-  - docker build build -t cetech/fibonacci-client ./client
-  - docker build build -t cetech/fibonacci-nginx ./nginx
-  - docker build build -t cetech/fibonacci-server ./server
-  - docker build build -t cetech/fibonacci-worker ./worker
+  - docker build -t cetech/fibonacci-client ./client
+  - docker build -t cetech/fibonacci-nginx ./nginx
+  - docker build -t cetech/fibonacci-server ./server
+  - docker build -t cetech/fibonacci-worker ./worker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push cetech/fibonacci-client
   - docker push cetech/fibonacci-nginx
