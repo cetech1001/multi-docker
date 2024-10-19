@@ -18,3 +18,16 @@ after_success:
   - docker push cetech/fibonacci-nginx
   - docker push cetech/fibonacci-server
   - docker push cetech/fibonacci-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "multi-docker-2"
+  env: "Multi-docker-2-env"
+  bucket_name: "elasticbeanstalk-us-east-1-765430960003"
+  bucket_path: "multi-docker"
+  edge: true
+  on:
+    branch: main
+  access_key_id: "$AWS_ACCESS_KEY"
+  secret_access_key: "$AWS_SECRET_KEY"
