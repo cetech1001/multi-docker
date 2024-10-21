@@ -10,11 +10,11 @@ services:
     environment:
       - REDIS_HOST=$REDIS_HOST
       - REDIS_PORT=$REDIS_PORT
-      - PGUSER=$PGUSER
-      - PGHOST=$PGHOST
-      - PGDATABASE=$PGDATABASE
-      - PGPASSWORD=$PGPASSWORD
-      - PGPORT=$PGPORT
+      - PG_USER=$PGUSER
+      - PG_HOST=$PGHOST
+      - PG_DATABASE=$PGDATABASE
+      - PG_PASSWORD=$PGPASSWORD
+      - PG_PORT=$PGPORT
   worker:
     image: "cetech/fibonacci-worker"
     mem_limit: 128m
